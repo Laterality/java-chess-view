@@ -8,11 +8,19 @@
       </template>
     </ul>
 
-    <form>
-      <label for="input-sess-title">방 제목</label>
-      <input type="text" id="input-sess-title" v-model="sessTitle">
-      <button type="button" @click="handleSessCreate">방 생성</button>
-    </form>
+    <b-form @submit="handleSessCreate" v-on:submit.prevent>
+      <b-form-group
+        label="방 제목"
+        label-for="input-session-name">
+        <b-form-input
+          id="input-session-name"
+          v-model="sessTitle"
+          type="text"
+          required
+          placeholder="방 제목을 입력하세요"></b-form-input>
+      </b-form-group>
+      <b-button type="submit" variant="primary">생성</b-button>
+    </b-form>
   </div>
 </template>
 
