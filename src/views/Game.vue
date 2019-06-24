@@ -2,7 +2,7 @@
   <div>
     <h1>{{ sessionTitle }}</h1>
     <GameBoard :states="states" :currentMovable="currentMovable" :disabled="!playable" @select="handleSelect" @move="handleMove"/>
-    <p>{{ resultText }}</p>
+    <b-alert variant="info" v-model="showResult" class="result-message">{{ resultText }}</b-alert>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default class Game extends Vue {
   private playable = true;
   private sessionTitle = '';
   private resultText = '';
+  private showResult = false;
 
   private selectedCoord = '';
 
@@ -96,19 +97,27 @@ export default class Game extends Vue {
   }
 
   private handleGameState(result: string) {
-    if (result === 'KEEEP') {
+    if (result === 'KEEP') {
       this.playable = true;
+      this.showResult = false;
       return;
     }
     if (result === 'BLACK_WIN') {
       this.playable = false;
       this.resultText = '흑 승리!';
+      this.showResult = true;
     }
     if (result === 'WHITE_WIN') {
       this.playable = false;
       this.resultText = '백 승리!';
+      this.showResult = true;
     }
   }
 }
 </script>
 
+<style lang="scss" scoped>
+.result-message {
+  margin: 14px 24px;
+}
+</style>
