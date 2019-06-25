@@ -10,7 +10,7 @@ export default class Request {
     }
 
     public static getMovable(sessionId: string, from: string): AxiosPromise {
-        return Axios.get(this.API_BASE_URL + `/game/movable?sessionId=${sessionId}&from=${from}`);
+        return Axios.get(this.API_BASE_URL + `/game/movable?sessionId=${sessionId}&of=${from}`);
     }
 
     public static movePiece(sessionId: string, from: string, to: string) {
