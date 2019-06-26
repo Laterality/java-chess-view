@@ -53,13 +53,5 @@ body {
 .container {
   margin: 0 auto;
 }
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .25s;
-}
-
-.fade-enter, .fade-leave-to {
-    opacity: 0;
-}
 </style>
 

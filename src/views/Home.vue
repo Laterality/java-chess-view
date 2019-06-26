@@ -66,3 +66,13 @@ export default class Home extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.0rem;
+}
+</style>

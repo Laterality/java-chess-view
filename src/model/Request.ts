@@ -21,6 +21,14 @@ export default class Request {
         });
     }
 
+    public static getScore(sessionId: string) {
+        return Axios.get(this.API_BASE_URL + `/game/score?sessionId=${sessionId}`);
+    }
+
+    public static endGame(sessionId: string) {
+        return Axios.post(this.API_BASE_URL + `/game/end?sessionId=${sessionId}`);
+    }
+
     public static createSession(title: string) {
         return Axios.post(this.API_BASE_URL + `/session`, {
             title,
